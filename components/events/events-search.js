@@ -13,7 +13,7 @@ function EventsSearch(props) {
     const selectedYear = yearInputRef.current.value;
     const selectedMonth = monthInputRef.current.value;
 
-    props.onSearch(selectedYear, selectedMonth);    
+    props.onSearch(selectedYear, selectedMonth);
   }
 
   return (
