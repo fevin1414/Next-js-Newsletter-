@@ -34,12 +34,11 @@ const client=await MongoClient.connect( 'mongodb+srv://fevin:Fevin4321@cluster0.
     }
 
  if(req.method === 'GET'){
-const dummyList=[
-  {id :'c1',name:'fevin',text:'Dummy comment'},
-  {id :'c2',name:'Biju',text:'test comment'},
 
-];
-res.status(201).json({comments:dummyList});
+ const db=client.db();
+
+const documents=await db.collection('comments').find().sort({_id:-1}).toArray();
+res.status(201).json({comments:documents});
 
  }
  client.close();
